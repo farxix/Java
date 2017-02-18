@@ -1,0 +1,72 @@
+集合有两类： list内的元素是有序的，元素可以重复。
+
+set元素无序，不可重复。
+
+都是单列集合，有一个共同的父接口collection。
+
+map<key,value> 它是双列的集合 键值对存储，value是真正存储值得变量能重复，无序，key不能重复。
+
+public class ListAndSetTest {  
+  
+    String string[]={"i","am","xiao","huang"};  
+    public void listtest(){  
+        List<String> list=new ArrayList<String>();  
+        for(String s:string){  
+            list.add(s);          
+        }  
+        for(int i=0;i<list.size();i++)  
+        {  
+            System.out.println("list的结果是："+list.get(i));              
+        }  
+    }  
+    public void settest(){  
+        Set<String> set=new HashSet<String>();  
+        for(String s:string){  
+            set.add(s);  
+        }  
+        Iterator iterator=set.iterator();  
+        while(iterator.hasNext()){  
+            System.out.println("set的输出结果是："+iterator.next());  
+        }  
+    }  
+    public static void main(String[] args) {          
+        new ListAndSetTest().listtest();  
+        new ListAndSetTest().settest();  
+    }  
+  
+}  
+
+首先定义一个字符串类型的数组，分别用list和set方法依次取出数组中的值，然后打印出来
+
+结果如下：
+
+list的结果是：i  
+list的结果是：am  
+list的结果是：xiao  
+list的结果是：huang  
+set的输出结果是：am  
+set的输出结果是：xiao  
+set的输出结果是：huang  
+set的输出结果是：i  
+下面是map的示例：
+
+public void maptest(){  
+        Map<Integer, String> map=new HashMap<Integer, String>();  
+        for(String s:string){  
+            map.put(s.length(), s);  
+            System.out.println("map的输出结果是："+map.get(s.length()));  
+        }  
+}  
+
+这里写程序的时候要注意一个问题，就是来给string数组赋值的时候一定要保证每一个的长度都是不一样的，因为map中的key要求是不同。
+
+
+list接口有三个实现类：处理序列
+linkedlist：链表实现，链表增删快，查找，慢。
+arraylist是线程非安全的，效率高，vector是线程安全的，低。
+
+
+set有两个实现类：hashset（底层由hashmap实现），linkedhashset，处理集
+
+Map：hashMap非线程安全，高效，支持null，hashTable线程安全，低效，不支持null；键值对。
+
