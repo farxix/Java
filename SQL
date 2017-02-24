@@ -1,0 +1,85 @@
+数据库
+sql对大小写不敏感。
+
+select * from persons;
+select distinct(去除重复值) company from orders；
+where子句，使用单引号来环绕文本值，如果是数值，请不要使用引号。
+order by用于根据指定的列对结果集进行排序。desc降序，asc升序。
+
+
+insert into person (name,number) values('','');
+
+
+update  person set name='新值' where...;
+
+删除表中的行：
+delete from person where name='值'；
+
+从Person表中选取头两条
+select top 2 * from persons；
+
+
+like ‘罗%’  罗嘉俊
+like  '%空'   天空
+
+in允许我们在where子句中规定多个值
+select * from person where name in ('luo','zhou');
+between and 
+
+
+两个表连接 join
+
+SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+INNER JOIN Orders
+ON Persons.Id_P = Orders.Id_P
+ORDER BY Persons.LastName
+
+
+SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons, Orders
+WHERE Persons.Id_P = Orders.Id_P
+
+
+
+union合并两个或多个select语句的结果集。
+select必须拥有相同数量的列
+SELECT column_name(s) FROM table_name1
+UNION
+SELECT column_name(s) FROM table_name2
+
+
+
+create database my_db; 创建数据库
+
+create table  person（  创建表
+ name  varchar（20），
+ id  int  not null，   不接受Null值
+ unique（id） 唯一性的保证
+ primary key （id） 主键，唯一的值，不能包含Null，每个表只能有一个主键.
+
+  一个表中的foreign key指向另一个表中的primary key
+ foreign key（id）references Person（id）
+）
+
+
+SQL函数：
+select avg(date) as dateAverage from person;
+
+COUNT(column_name) 函数返回指定列的值的数目
+
+fisrt()返回指定的字段中第一个记录的值,last()
+
+max()返回一列中的最大值。min()
+
+sum()返回数值列的总数（总额）
+
+group by 根据一个或多个列对结果集进行分组。常配合sum()
+SELECT Customer,SUM(OrderPrice) FROM Orders
+GROUP BY Customer
+
+having子句，因为where关键字无法与合计函数一起使用。
+查找订单总金额少于 2000 的客户。
+SELECT Customer,SUM(OrderPrice) FROM Orders
+GROUP BY Customer
+HAVING SUM(OrderPrice)<2000
