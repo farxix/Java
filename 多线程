@@ -60,7 +60,8 @@ public class TestThread {
 
 Java中的sleep()和wait的区别
 
-sleep()是属于Thread类中的，wait()方法是属于Object类中的。调用sleep()方法的过程中，线程不会释放对象锁，是占的cpu去睡觉，其他线程不能占用cpu。而wait()方法会放弃对象锁，进入等待池等待，让出系统资源，其他线程可以占用cpu。
+sleep()是属于Thread类中的，wait()方法是属于Object类中的。调用sleep()方法的过程中，线程不会释放对象锁，是占的cpu去睡觉，其他线程不能占用cpu。
+而wait()方法会放弃对象锁，进入等待池等待，让出系统资源，其他线程可以占用cpu。
 
 
 
