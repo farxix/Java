@@ -11,7 +11,7 @@
 
 执行sleep wait方法，线程变成阻塞状态
 
-创建一个线程：实现Runnable接口，继承Thread类本身，通过Callable和future创建线程。
+实现多线程：实现Runnable接口，继承Thread类本身，通过Callable和future创建线程。
 
 
 class RunnableDemo implements Runnable {
