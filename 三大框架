@@ -108,6 +108,11 @@ ORM：全称Object Relation Mapping，即对象/关系映射。也可理解成�
  例如国际化支持，资源访问和事件传递。
  
  
+spring中事务传播：
+propagation_required  如果当前没有事务，就新建一个事务，如果有，就加入到这个事务中。
+propagation_new       新建事务，如果当前存在事务，就把当前事务挂起。
+propagation_never     以非事务方式执行，如果当前存在事务，则抛出异常。
+ 
  
  
  
