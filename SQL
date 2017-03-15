@@ -40,14 +40,14 @@ SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
 FROM Persons, Orders
 WHERE Persons.Id_P = Orders.Id_P
 
-
-
+Union：会自动压缩多个结果集合中的重复值；
+UnionAll：全部会显示出来
 union合并两个或多个select语句的结果集。
 select必须拥有相同数量的列
 SELECT column_name(s) FROM table_name1
 UNION
 SELECT column_name(s) FROM table_name2
-
+联结：内联结、外联结、交叉联结。
 
 
 create database my_db; 创建数据库
@@ -86,10 +86,13 @@ HAVING SUM(OrderPrice)<2000
 
 
 
-sql中的左连接和右连接，假设有2个表，左表有10行，右表5行，左连接和右分别能获取几条数据。
+sql中的左连接和右连接，假设有2个表，左表有10行，右表5行，左连接和右分别能获取几条数据。左：123，右：124
 （1）左连接：只要左边表中有记录，数据就能检索出来，而右边有
-的记录必要在左边表中有的记录才能被检索出来.  left join  on
+的记录必要在左边表中有的记录才能被检索出来.  left join  on ，1 2 3 ，1 2 null
 
-（2）右连接：右连接是只要右边表中有记录，数据就能检索出来
+（2）右连接：右连接是只要右边表中有记录，数据就能检索出来      1 2 null，1 2 4 
 
 通过左连接和右连接，最小条数为5（记录条数较小的记录数），最大条数为50（5×10）
+
+
+
