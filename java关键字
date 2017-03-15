@@ -31,3 +31,43 @@ abstract方法不在声明它的类中实现，但必须在某个子类中重写
 
 
 implements 是实现某个接口的意思。
+
+
+hashMap 是非线程安全，异步，key、value可以为空,继承AbstractMap；
+hashTable 是线程安全，同步，有contains()，继承Dictionary；
+
+
+三者在执行速度方面的比较：StringBuilder >  StringBuffer  >  String
+StringBuilder：线程非安全的
+
+StringBuffer：线程安全的
+
+对于三者使用的总结： 
+1.如果要操作少量的数据用 = String
+2.单线程操作字符串缓冲区 下操作大量数据 = StringBuilder
+3.多线程操作字符串缓冲区 下操作大量数据 = StringBuffer
+
+
+
+==比较的是对象的地址,也就是是否是同一个对象; equal比较的是对象的值。
+
+
+整数类型byte short int long 浮点型 float double 字符型 char 布尔型 boolean
+boolean Boolean  封装类
+char Character
+byte Byte
+short Short
+int Integer
+long Long
+float Float
+double Double
+
+
+Iterator中两个方法:
+
+hasNext(),是判断当前元素是否存在，并指向下一个元素（即所谓的索引）；
+next（），则是返回当前元素，并指向下一个元素。
+
+trim() 函数的功能是去掉首尾空格
+
+
