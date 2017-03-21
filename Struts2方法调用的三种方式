@@ -1,0 +1,47 @@
+第一种方式：指定method属性
+<action name="student" class="com.itmyhome.Student" method="add"> 
+            <result name="add">/success.jsp</result> 
+        </action>
+
+这样Struts2就会调用Student 中的add方法 
+
+
+第二种方式：动态方法调用(DMI)
+用这种方法需要设置一个常量
+<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+<global-allowed-methods>showInfo,updatePersonInfo</global-allowed-methods>
+
+form表单中的action为：
+action = "action!methodName.action" 
+
+在struts.xml中定义如下Action
+<action name="student" class="com.itmyhome.StudentAction"> 
+            <result name="add">/add.jsp</result> 
+            <result name="delete">/delete.jsp</result> 
+        </action>
+
+StudentAction代码为
+public class StudentAction extends ActionSupport {
+    public String add(){
+        return "add";
+    }
+    public String delete(){
+        return "delete";
+    }
+}
+
+则在JSP中用如下方式调用方法
+<a href="student!add.action">  新增学生</a>
+<a href="student!delete.action"> 删除学生</a>
+
+第三种方式：通配符
+<action name="student*" class="com.itmyhome.StudentAction" method="{1}">
+            <result name="{1}">/student{1}.jsp</result>
+        </action>
+
+<a href="studentadd">  新增学生</a>
+<a href="studentdelete"> 删除学生</a>
+
+studentadd就会调用StudentAction中的add方法 然后跳转到studentadd.jsp
+studentdelete就会调用StudentAction中的delete方法 然后跳转到studentdelete.jsp
+
