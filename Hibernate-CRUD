@@ -1,0 +1,32 @@
+对象在生命周期中所处的状态通常有3种：瞬时态（Transient）、持久态（Persistent）、游离态（Detached）。
+
+1、瞬时态：利用new操作符实例化后的对象所处的状态。不能对其进行回滚；使用delete()方法变为瞬时态。
+2、持久态：对象与Session实例是相关的。
+3、游离态：当处于持久态的对象不再与Session实例相关联，该对象就变成了游离态。session.close()后。
+
+
+首先是有sql语句，hibernate中from语句，例如查询user表，sql="from user"
+
+save()方法，save(user)
+
+find()方法，返回的是List集合。
+
+get()是通过标识符得到指定类的持久化对象，如果对象不存在时，则返回值为空。get(User.class,"12345");
+load(),通过标识符得到指定类的持久化对象，如果对象不存在时，则抛异常。
+
+contains()用来判断一个实体对象是否与当前的Session对象相关联，，也可以判断一个实体对象是否处于Persistent状态，
+boolean contains(Object object);只包含一个参数，该参数是要查询的实体对象，若要查询的对象在当前Session的缓存中则返回true，否false。
+
+
+evict(),当Session缓存太多，抛出OutofMemoryException异常，可调用evict()来清除指定缓存对象。
+if(session.contains(user))   判断对象是否存在Session缓存中
+session.evict(user);
+
+
+clear(),清空Session的缓存，session.clear();
+
+
+更新:update(),像update(user)
+
+
+删除：delete(),delete(user)
