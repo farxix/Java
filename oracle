@@ -1,0 +1,12 @@
+jdbc:oracle:thin:@192.168.3.98:1521:orcl
+jdbc:表示采用jdbc方式连接数据库
+oracle:表示连接的是oracle数据库
+thin:表示连接时采用thin模式(oracle中有两种模式)
+
+jdbc:oralce:thin:是一个jni方式的命名
+
+@表示地址
+1521和orcl表示端口和数据库名
+
+@192.168.3.98:1521:orcl整个是一块
+也就是说是这样[jdbc]:[oracle]:[thin]:[@192.168.3.98:1521:orcl]
