@@ -218,9 +218,4 @@ return instance
 
 
 
-finally 表示这段语句最终总是被执行
-
-
-
-
-
+finally 表示这段语句最终总是被执行，无论是否抛出异常且一定执行.
