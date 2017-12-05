@@ -10,3 +10,55 @@ jdbc:oralce:thin:是一个jni方式的命名
 
 @192.168.3.98:1521:orcl整个是一块
 也就是说是这样[jdbc]:[oracle]:[thin]:[@192.168.3.98:1521:orcl]
+
+
+
+oracle常见报错情况：
+
+1、ORA-01861: literal does not match format string
+
+解决方案：文字与格式字符串不匹配，指定日期格式错误
+
+
+2、missing right parenthesis
+
+解决方案：缺失右括号
+
+
+创建同义词：
+
+删除数据库链接：drop database link linkname;
+
+创建数据库链接：
+create database link linkname
+connect to username identified by password
+using 'connection string';
+
+connection string可以有两种形式：
+1，在文件tnsnames.ora配置的名称：
+CDRDL =
+(DESCRIPTION =
+(ADDRESS_LIST =
+(ADDRESS = (PROTOCOL = TCP)(HOST = 10.147.129.29)(PORT = 2521))
+)
+(CONNECT_DATA =
+(SERVICE_NAME = cdrdb)
+)
+)
+此时可以写成：
+create database link linkname
+connect to username
+identified by password
+using 'CDRDL';
+
+2，也可以直接使用‘=’号后面的字符串：
+create database link linkname
+connect to username
+identified by password
+using '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.147.129.29)(PORT=2521)))(CONNECT_DATA=(SERVICE_NAME=cdrdb)))';
+
+
+在后面创建同义词：
+create or replace synonym USER for USERB@linkname;
+删除同义词：
+drop synonym USER;
