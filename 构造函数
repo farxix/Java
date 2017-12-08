@@ -1,0 +1,20 @@
+　java中的构造方法是用来初始化一个对象的，并为为实例变量赋予合适的初始值。因此构造方法不需要返回类型。　　
+ 构造方法必须满足以下语法规则：　　
+ (1)方法名必须与类名相同；　　
+ (2)不要声明返回类型；　
+ (3)不能被static、final、synchronized、abstract和native修饰；　　
+ (4)构造方法不能被子类继承，所以用final和abstract修饰没有意义。　　
+ 构造方法的创建如下示例：
+
+public class Demo {
+    private int x;
+    public Demo() { // 不带参数的构造方法
+     
+    }
+    public Demo(int x) { //带参数的构造方法
+        this.x=x;
+    }
+    public int Demo(int x) { //不是构造方法
+        return x++;
+    }
+}
